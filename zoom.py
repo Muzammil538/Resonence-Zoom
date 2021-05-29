@@ -1,0 +1,21 @@
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+browser = webdriver.Chrome()
+#browser.get('http://seleniumhq.org/')
+url = "https://resonancewarangal.com/liveclasses/home/my_courses"
+browser.get(url)
+urname = browser.find_element_by_xpath('//*[@id="login-email"]')
+passwd = browser.find_element_by_xpath('/html/body/section[3]/div/div/div/div/div[1]/form/div[1]/div/div[2]/input')
+btn = browser.find_element_by_xpath('/html/body/section[3]/div/div/div/div/div[1]/form/div[2]/button')
+urname.send_keys('JAB212119')
+passwd.send_keys('JAB212119')
+btn.click()
+btn2 = browser.find_element_by_xpath('//*[@id="course_info_view_24"]/div[2]/div[2]/a')
+btn2.click()
+capcha = browser.find_element_by_xpath('//*[@id="OPT"]').get_attribute("value")
+#print(type(capcha))
+Capcha_text=int(capcha)
+# Captcha_feild = browser.find_element_by_xpath('//*[@id="verifyOPT"]')
+# Captcha_feild.send_keys("Capcha_text")
+btn3 = browser.find_element_by_xpath('//*[@id="JoinLink"]').get_attribute("href")
+Zoom_Start = browser.get(btn3)
